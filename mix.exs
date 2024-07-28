@@ -15,6 +15,7 @@ defmodule HedwigIrc.Mixfile do
       package: package(),
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
+      compilers: [:yecc, :leex] ++ Mix.compilers(),
       deps: deps()
     ]
   end
@@ -37,8 +38,10 @@ defmodule HedwigIrc.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:hedwig, "~> 1.0"},
-      {:exirc, "~> 1.1.0"},
+      # {:hedwig, "~> 1.0"},
+      # {:exirc, "~> 2.0.0"},
+      {:hedwig, github: "ircdev/hedwig"},
+      {:exirc, github: "ircdev/exirc"},
       {:ex_doc, "~> 0.18", only: :dev}
     ]
   end
