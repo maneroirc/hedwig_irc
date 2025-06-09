@@ -38,8 +38,8 @@ defmodule HedwigIrc.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:hedwig, github: "maneroirc/hedwig"},
-      {:exirc, github: "maneroirc/exirc"},
+      {:hedwig, github: "maneroirc/hedwig", branch: "main"},
+      {:exirc, github: "maneroirc/exirc", branch: "main"},
       {:ex_doc, "~> 0.18", only: :dev},
       {:styler, "~> 1.4", only: [:dev, :test], runtime: false}
     ]
