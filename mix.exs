@@ -38,19 +38,17 @@ defmodule HedwigIrc.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      # {:hedwig, "~> 1.0"},
-      # {:exirc, "~> 2.0.0"},
-      {:hedwig, github: "ircdev/hedwig"},
-      {:exirc, github: "ircdev/exirc"},
-      {:ex_doc, "~> 0.18", only: :dev}
+      {:hedwig, github: "maneroirc/hedwig"},
+      {:exirc, github: "maneroirc/exirc"},
+      {:ex_doc, "~> 0.18", only: :dev},
+      {:styler, "~> 1.4", only: [:dev, :test], runtime: false}
     ]
   end
 
   defp package do
     [
-      maintainers: ["Jeff Weiss"],
-      licenses: ["MIT"],
-      links: %{"Github" => "https://github.com/jeffweiss/hedwig_irc"}
+      maintainers: ["Graham McIntire", "Jeff Weiss"],
+      licenses: ["MIT"]
     ]
   end
 end

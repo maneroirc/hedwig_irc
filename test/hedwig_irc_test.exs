@@ -1,5 +1,6 @@
 defmodule HedwigIrcTest do
   use ExUnit.Case
+
   doctest Hedwig.Adapters.IRC
 
   test "the truth" do
