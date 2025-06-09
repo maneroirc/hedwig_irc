@@ -9,7 +9,7 @@ defmodule HedwigIrc.Mixfile do
     [
       app: :hedwig_irc,
       version: "0.1.4",
-      elixir: "~> 1.2",
+      elixir: "~> 1.18",
       name: "hedwig_irc",
       description: @description,
       package: package(),
@@ -42,7 +42,7 @@ defmodule HedwigIrc.Mixfile do
       # {:exirc, "~> 2.0.0"},
       {:hedwig, github: "ircdev/hedwig"},
       {:exirc, github: "ircdev/exirc"},
-      {:ex_doc, "~> 0.18", only: :dev}
+      {:ex_doc, "~> 0.38", only: :dev}
     ]
   end
 
