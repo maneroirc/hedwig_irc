@@ -97,8 +97,24 @@ defmodule Hedwig.Adapters.IRC do
     {:noreply, state}
   end
 
-  def handle_info(:disconnected, {robot, _opts, _client} = state) do
+  def handle_info(:disconnected, {robot, opts, client} = state) do
     Robot.handle_disconnect(robot, nil)
+    Logger.warn("Disconnected from server. Attempting to reconnect in 5 seconds...")
+    Process.send_after(self(), :reconnect, 5000)
+    {:noreply, {robot, opts, client}}
+  end
+
+  def handle_info(:reconnect, {_robot, opts, client} = state) do
+    host = Keyword.fetch!(opts, :server)
+    port = Keyword.get(opts, :port, 6667)
+    ssl? = Keyword.get(opts, :ssl, false)
+
+    if ssl? do
+      Client.connect_ssl!(client, host, port)
+    else
+      Client.connect!(client, host, port)
+    end
+
     {:noreply, state}
   end
 
